@@ -1,15 +1,16 @@
-import Ember from 'ember';
+import Service from '@ember/service';
+import { later, schedule } from "@ember/runloop";
 
-const { run } = Ember;
-
-export default Ember.Object.extend({
+export default Service.extend({
   init: function() {
-    let els = Ember.$('[data-name="preloader"]');
+    this._super(...arguments);
+
+    let els = $('[data-name="preloader"]');
 
     if (els.length) {
       this.set('els', els);
-      run.schedule('afterRender', this, 'addLoadedClass');
-      run.schedule('afterRender', this, 'removePreloader');
+      schedule('afterRender', this, 'addLoadedClass');
+      schedule('afterRender', this, 'removePreloader');
     }
   },
 
@@ -38,7 +39,7 @@ export default Ember.Object.extend({
       delay = isNaN(delay) ? (removeDelay || 0) : delay;
     }
 
-    run.later(this, function() {
+    later(this, function() {
       let els = this.get('els');
       if (els && els.remove) {
         this.get('els').remove();

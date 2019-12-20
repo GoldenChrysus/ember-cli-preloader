@@ -7,7 +7,7 @@ Adds a customizable preloader while the browser is evaluating your App's JS and 
 
 ### Installation
 
-* `ember install ember-cli-preloader`
+* `ember install GoldenChrysus/ember-cli-preloader && ember g ember-cli-preloader`
 
 ### Demo / Docs / Configuration
 

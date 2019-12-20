@@ -1,7 +1,4 @@
-import Ember from 'ember';
 import Preloader from 'ember-cli-preloader/services/preloader';
-
-const { inject, run } = Ember;
 
 export default {
   name: 'preloader',
@@ -12,6 +9,6 @@ export default {
       options: options
     });
 
-    app.register('service:preloader', service, { instantiate: false });
+    app.register('service:preloader', service);
   }
 }
